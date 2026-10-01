@@ -1,0 +1,9 @@
+[server]
+# Hard upload cap in MB (the app also checks per-file size itself).
+maxUploadSize = 10
+
+[browser]
+gatherUsageStats = false
+
+[theme]
+primaryColor = "#4F46E5"

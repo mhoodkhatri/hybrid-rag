@@ -1,0 +1,14 @@
+[
+  {"question": "What should I do when the machine struggles on hot summer afternoons?", "type": "conceptual",
+   "expected": [{"source": "aurora_manual.md", "page": 1, "phrase": "improving ventilation around the cabinet"}]},
+  {"question": "Why is running the compressor at partial load better for the motor?", "type": "conceptual",
+   "expected": [{"source": "aurora_manual.md", "page": 1, "phrase": "start-up current surges"}]},
+  {"question": "How do I dispose of the unit at end of life?", "type": "conceptual",
+   "expected": [{"source": "aurora_manual.md", "page": 1, "phrase": "recovered by a certified technician"}]},
+  {"question": "What does E-4021 mean?", "type": "exact_term",
+   "expected": [{"source": "aurora_manual.md", "page": 1, "phrase": "E-4021: Compressor discharge temperature"}]},
+  {"question": "What is AX-EXT-5?", "type": "exact_term",
+   "expected": [{"source": "aurora_manual.md", "page": 1, "phrase": "AX-EXT-5 extends parts cover"}]},
+  {"question": "Which register holds the active fault code?", "type": "exact_term",
+   "expected": [{"source": "aurora_manual.md", "page": 1, "phrase": "register 40010"}]}
+]

@@ -1,0 +1,24 @@
+# Secrets — never commit
+.env
+.streamlit/secrets.toml
+
+# Python / tooling caches
+__pycache__/
+*.py[cod]
+.pytest_cache/
+.venv/
+venv/
+.mypy_cache/
+.ruff_cache/
+
+# Model / vector caches (local runs)
+.cache/
+huggingface/
+chroma/
+*.sqlite3
+
+# OS / editor
+.DS_Store
+Thumbs.db
+.vscode/
+.idea/

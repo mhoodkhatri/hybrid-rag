@@ -1,0 +1,10 @@
+# Store text files with LF so checkouts match byte-for-byte (keeps the eval-set SHA-256 stable).
+* text=auto eol=lf
+
+# Binary files: never touch line endings.
+*.pdf binary
+*.png binary
+*.gif binary
+
+# Frozen eval set: stored byte-for-byte so its published SHA-256 (0f77fb3173cd67fd) stays valid.
+data/eval_set.json -text

@@ -1,0 +1,17 @@
+# CPU-only PyTorch wheels (no CUDA download, ~10x smaller). Streamlit Cloud honours this line.
+--extra-index-url https://download.pytorch.org/whl/cpu
+torch==2.14.1+cpu
+
+streamlit==1.64.0
+openai==3.22.1
+chromadb==1.5.9
+sentence-transformers==6.1.0
+transformers==5.18.0
+huggingface-hub==1.33.0
+numpy==2.5.3
+rank-bm25==0.2.2
+pypdf==6.19.0
+python-dotenv==1.2.4
+
+# tests
+pytest==9.1.1
