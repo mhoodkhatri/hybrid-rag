@@ -25,6 +25,12 @@ ANSWER_MAX_TOKENS: int = 800
 LLM_TIMEOUT_S: float = 30.0
 LLM_MAX_RETRIES: int = 2
 REWRITE_HISTORY_TURNS: int = 6
+# Claim check: one extra JSON-mode call after each answer grades every cited
+# sentence against the chunk(s) it cites. Failure never blocks the answer.
+CLAIM_CHECK_ENABLED: bool = True
+CLAIM_CHECK_MAX_CLAIMS: int = 12
+CLAIM_CHECK_MAX_TOKENS: int = 700
+CLAIM_CHECK_TIMEOUT_S: float = 30.0
 
 # --- Local models (free, CPU) ---------------------------------------------
 EMBED_MODEL: str = "BAAI/bge-small-en-v1.5"
@@ -47,9 +53,15 @@ MAX_QUERIES_PER_SESSION: int = 20
 MAX_FILE_MB: int = 10
 MAX_FILES: int = 3
 MAX_QUESTION_CHARS: int = 500
+# "Compare modes" runs retrieval only (no LLM, free), so it has its own CPU-protecting cap.
+MAX_COMPARES_PER_SESSION: int = 50
 # Protects the shared CPU: a 10 MB text-heavy PDF can yield thousands of chunks.
 MAX_CHUNKS_PER_SESSION: int = 1500
 SUPPORTED_EXTENSIONS: tuple[str, ...] = (".pdf", ".txt", ".md")
+# Streamlit has no session-end hook, so uploads are swept on every script run:
+# idle sessions expire, and only the most recently active ones are kept.
+SESSION_TTL_MIN: int = 30
+MAX_UPLOAD_SESSIONS: int = 25
 
 # --- Paths ----------------------------------------------------------------
 ROOT_DIR: Path = Path(__file__).resolve().parent

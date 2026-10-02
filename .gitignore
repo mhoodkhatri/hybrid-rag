@@ -22,3 +22,7 @@ chroma/
 Thumbs.db
 .vscode/
 .idea/
+
+# Local working notes and scratch runs (not part of the project)
+PLAN*.md
+evals/e2e_dryrun.jsonl

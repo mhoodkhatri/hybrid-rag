@@ -8,3 +8,6 @@
 
 # Frozen eval set: stored byte-for-byte so its published SHA-256 (0f77fb3173cd67fd) stays valid.
 data/eval_set.json -text
+
+# Frozen eval set v2: stored byte-for-byte so its recorded SHA-256 (evals/eval_set_v2.json.sha256) stays valid.
+evals/eval_set_v2.json -text

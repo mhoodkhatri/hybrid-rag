@@ -11,7 +11,7 @@ import re
 import uuid
 from dataclasses import dataclass, field
 from enum import Enum
-from typing import TYPE_CHECKING
+from typing import TYPE_CHECKING, Callable
 
 import numpy as np
 from rank_bm25 import BM25Okapi
@@ -116,8 +116,16 @@ class HybridIndex:
         self._docs: dict[str, tuple[str, dict]] = {}  # id -> (text, metadata)
 
     # -- writes -------------------------------------------------------------
-    def add_chunks(self, chunks: list[Chunk], batch_size: int = 64) -> int:
-        """Embed and store chunks, then rebuild BM25 from Chroma. Returns count added."""
+    def add_chunks(
+        self,
+        chunks: list[Chunk],
+        batch_size: int = 64,
+        progress: Callable[[int, int], None] | None = None,
+    ) -> int:
+        """Embed and store chunks, then rebuild BM25 from Chroma. Returns count added.
+
+        `progress(done, total)` is called after each embedded batch, if given.
+        """
         if not chunks:
             return 0
         existing = set(self._col.get(ids=[c.chunk_id for c in chunks], include=[])["ids"])
@@ -133,6 +141,8 @@ class HybridIndex:
                 metadatas=[c.metadata for c in batch],
                 embeddings=vecs.tolist(),
             )
+            if progress is not None:
+                progress(min(i + batch_size, len(new)), len(new))
         self._rebuild_bm25()
         return len(new)
 
