@@ -162,7 +162,7 @@ answers (details in the write-up).
 Requires Python 3.11+ (developed on 3.13), CPU only.
 
 ```bash
-git clone <your-repo-url> && cd rag-app
+git clone https://github.com/mhoodkhatri/hybrid-rag.git && cd hybrid-rag
 python -m venv .venv
 # Windows: .venv\Scripts\activate    macOS/Linux: source .venv/bin/activate
 pip install -r requirements.txt      # CPU-only torch; `uv pip install -r requirements.txt` is much faster
